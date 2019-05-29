@@ -1,11 +1,11 @@
-// src/pages/callback.js
-import React from "react"
-import { handleAuthentication } from "../utils/auth"
+// // src/pages/callback.js
+// import React from "react"
+// import { handleAuthentication } from "../utils/auth"
 
-const Callback = () => {
-  handleAuthentication()
+// const Callback = () => {
+//   handleAuthentication()
 
-  return <p>Loading...</p>
-}
+//   return <p>Loading...</p>
+// }
 
-export default Callback
+// export default Callback
