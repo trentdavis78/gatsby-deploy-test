@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../styles/layout.css'
 
 export class section extends Component {
   render() {

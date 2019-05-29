@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/layout.css'
+
 
 export class rowContainer extends Component {
   render() {
