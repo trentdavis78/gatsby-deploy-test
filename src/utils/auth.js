@@ -4,6 +4,15 @@ import { navigate } from "gatsby"
 
 const isBrowser = typeof window !== "undefined"
 
+// Requiring function causes error during builds
+// as the code tries to reference window
+const module = require("module") // Error
+
+// Wrap the require in check for window
+if (typeof window !== `undefined`) {
+  const module = require("module")
+}
+
 const auth = isBrowser
   ? new auth0.WebAuth({
       domain: process.env.AUTH0_DOMAIN,
