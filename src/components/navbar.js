@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "gatsby"
 import logo from "../assets/images/logo.svg" 
-// import { logout, isAuthenticated, login,getProfile,getUserName } from "../utils/auth"
+import { logout, isAuthenticated, login,getProfile,getUserName } from "../utils/auth"
 
 export class Navbar extends Component {
     state = {
@@ -9,39 +9,39 @@ export class Navbar extends Component {
           userName:'',
           isUserNameDisplay:"false"
     }
-//  userName="";
+ userName="";
 
     componentDidMount() {
 
-    //     if (!isAuthenticated())
-    //      {
-    //         this.setState({
-    //           text: 'Login',
-    //           userName:'',
-    //           isUserNameDisplay:"false"
-    //         });
-    //        }
-    //       else
-    //       {
-    //         const user = getProfile()
-    //         this.setState({
-    //           text: 'Logout',
-    //           userName:user.name,
-    //           isUserNameDisplay:"true"
-    //         });
+        if (!isAuthenticated())
+         {
+            this.setState({
+              text: 'Login',
+              userName:'',
+              isUserNameDisplay:"false"
+            });
+           }
+          else
+          {
+            const user = getProfile()
+            this.setState({
+              text: 'Logout',
+              userName:user.name,
+              isUserNameDisplay:"true"
+            });
 
-    //       }
-    // }
-    // loginClick = event =>{
-    //   event.preventDefault();
-    //   if (isAuthenticated()) {
-    //     window.location.href = "/login";
-    //     logout();
-    //   }
-    //   else{
-    //     login();
-    //     event.preventDefault();
-    //   }
+          }
+    }
+    loginClick = event =>{
+      event.preventDefault();
+      if (isAuthenticated()) {
+        window.location.href = "/login";
+        logout();
+      }
+      else{
+        login();
+        event.preventDefault();
+      }
     }
   render() {
     return (
@@ -60,10 +60,10 @@ export class Navbar extends Component {
             <li><Link to="/events">Events</Link></li>
             <li><Link to="/resources">Resources</Link></li>
             <li><Link to="/services">Services</Link></li>
-           {/* <li><label className="waves-effect waves-light btn pink accent-3" style={{display: isAuthenticated() ? 'inline-block' : 'none' }} > {getUserName()} </label></li>
+           <li><label className="waves-effect waves-light btn pink accent-3" style={{display: isAuthenticated() ? 'inline-block' : 'none' }} > {getUserName()} </label></li>
             
             <li><a className="waves-effect waves-light btn pink accent-3" id="login-trigger" onClick={this.loginClick}>{this.state.text}</a></li>
-             */}
+            
           </ul>
         </div>        
       </nav>
