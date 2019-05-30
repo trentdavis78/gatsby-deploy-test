@@ -4,15 +4,6 @@ import { navigate } from "gatsby"
 
 const isBrowser = typeof window !== "undefined"
 
-// Requiring function causes error during builds
-// as the code tries to reference window
-const module = require("module") // Error
-
-// Wrap the require in check for window
-if (typeof window !== `undefined`) {
-  const module = require("module")
-}
-
 const auth = isBrowser
   ? new auth0.WebAuth({
       domain: process.env.AUTH0_DOMAIN,
@@ -61,8 +52,10 @@ const setSession = (cb = () => {}) => (err, authResult) => {
     tokens.idToken = authResult.idToken
     tokens.expiresAt = expiresAt
     user = authResult.idTokenPayload
+    if(isBrowser) {
     localStorage.setItem("isLoggedIn", true)
     localStorage.setItem("usesrName", user.name)
+    }
     navigate("/")
     cb()
   }
@@ -86,10 +79,13 @@ export const silentAuth = callback => {
   }
   
   export const getUserName = () => {
-    return localStorage.getItem("usesrName");
+    
+    return isBrowser ? localStorage.getItem("usesrName") : undefined;
   }
   export const logout = () => {
+      if(isBrowser) {
     localStorage.setItem("isLoggedIn", false)
     localStorage.setItem("usesrName","")
+      }
     auth.logout()
   }
