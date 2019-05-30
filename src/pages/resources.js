@@ -17,7 +17,7 @@ const Resources = () => {
     <Layout>
       <SEO title="Resources" />
         <h1>Resources</h1>
-      <Link to="/">Go back to the homepage</Link>
+      {/* <Link to="/">Go back to the homepage</Link>
       {<a
           href="#logout"
           onClick={e => {
@@ -26,7 +26,7 @@ const Resources = () => {
           }}
         >
           Log Out
-      </a>}
+      </a>} */}
     </Layout>
   )
 }
