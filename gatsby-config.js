@@ -16,11 +16,11 @@ module.exports = {
     {
       resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: 'https://atxpc-cms.herokuapp.com',
+        apiURL: 'http://localhost:1337',
         contentTypes: [ // List of the Content Types you want to be able to request from Gatsby.
           'article',
           'user',
-          'userdetails'
+          'userdetails',          
         ],
         queryLimit: 1000,
       },
