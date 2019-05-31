@@ -18,6 +18,7 @@ import UserCard from "../components/userCard";
 import user1img from "../images/User_1.jpg"
 import user2img from "../images/User_2.jpg"
 import user3img from "../images/User_3.jpg"
+import Modal from "../components/modal";
 
 export default class IndexPage extends React.Component {
   // Since `addToMailchimp` returns a promise, you
@@ -74,7 +75,10 @@ export default class IndexPage extends React.Component {
                 <label htmlFor="emailId">Email</label>
               </div>
               <div className="input-field inline">
-                <button className="waves-effect waves-light btn-flat red white-text" id="subscribme" type="submit">Subscribe</button>
+                <button data-target="modal1" className="waves-effect waves-light btn-flat red white-text modal-trigger" id="subscribme" type="submit">Subscribe</button>
+                <Modal modalId={"modal1"} >
+                  You've subscribed!
+                </Modal>
               </div>
             </form>
           </div>
