@@ -12,14 +12,14 @@ const ArticleTemplate = ({ data }) => (
     <Layout>
         <Section styleName={"bg-white"}>
             <RowContainer>
-                <div className="col s12 m9 l9 white" style={{borderRadius:10}}>
+                <div key={data.strapiArticle.id} className="col s12 m9 l9 white" style={{borderRadius:10}}>
                     <div className="article-wrapper">
                         <h1 className="article-heading">{data.strapiArticle.title}</h1>
                         <div className="article-info">
                             <span className="article-author">by <Link to={`/authors/User_${data.strapiArticle.author.id}`}>
                                 {data.strapiArticle.author.username}
                                 </Link></span>
-                            <span className="article-created">{moment(data.strapiArticle.created_at).format("MMM DD, YYYY")}</span>
+                            <span className="article-created">{moment(data.strapiArticle.createdAt).format("MMM DD, YYYY")}</span>
                         </div>
                         <Img fluid={data.strapiArticle.image.childImageSharp.fluid} /> 
                         
@@ -52,7 +52,7 @@ export const query = graphql`
         id
         username
       }
-      created_at
+      createdAt
     }
   }
 `
